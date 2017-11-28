@@ -1,0 +1,27 @@
+package grafos;
+
+public class Grafo {
+	
+	Estacao[] est = new Estacao[20];
+	
+	int adjcentes[][] = new int[20][20];
+
+	public Estacao[] getEst() {
+		return est;
+	}
+
+	public void setEst(Estacao[] est) {
+		this.est = est;
+	}
+
+	public int[][] getAdjcentes() {
+		return adjcentes;
+	}
+
+	public void setAdjcentes(int[][] adjcentes) {
+		this.adjcentes = adjcentes;
+	}
+	private void addpercurso(int estacao1, int estacao2){
+		
+		
+	}
