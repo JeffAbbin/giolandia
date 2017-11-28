@@ -1,0 +1,26 @@
+package grafos;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		int[][] sistema = new int[20][20];
+		
+		Estacao[] graf = new Estacao[20];
+		
+		for (int i = 0; i < graf.length; i++) {
+			
+			graf[i] = new Estacao(i +1);
+		}
+		
+		sistema 
+	
+	 
+	
+
+	}
+	
+	
+		
+
+}
