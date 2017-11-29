@@ -1,26 +1,42 @@
-package grafos;
+package grafolandia;
 
 public class Main {
 
 	public static void main(String[] args) {
-		
-		int[][] sistema = new int[20][20];
-		
-		Estacao[] graf = new Estacao[20];
-		
-		for (int i = 0; i < graf.length; i++) {
-			
-			graf[i] = new Estacao(i +1);
-		}
-		
-		sistema 
 	
-	 
+		grafo grafolandia = new grafo();
+		// vai realizar todas as conexões da grafolandia
+		grafolandia.addconexao(grafolandia.station[1], grafolandia.station[2], grafolandia.line[6]);
+		grafolandia.addconexao(grafolandia.station[2], grafolandia.station[3], grafolandia.line[7]);
+		grafolandia.addconexao(grafolandia.station[3], grafolandia.station[4], grafolandia.line[8]);
+		grafolandia.addconexao(grafolandia.station[4], grafolandia.station[5], grafolandia.line[9]);
+		grafolandia.addconexao(grafolandia.station[5], grafolandia.station[6], grafolandia.line[10]);
+		grafolandia.addconexao(grafolandia.station[7], grafolandia.station[8], grafolandia.line[16]);
+		grafolandia.addconexao(grafolandia.station[8], grafolandia.station[9], grafolandia.line[17]);
+		grafolandia.addconexao(grafolandia.station[9], grafolandia.station[10], grafolandia.line[18]);
+		grafolandia.addconexao(grafolandia.station[10], grafolandia.station[11], grafolandia.line[19]);
+		grafolandia.addconexao(grafolandia.station[11], grafolandia.station[6], grafolandia.line[20]);
+		grafolandia.addconexao(grafolandia.station[12], grafolandia.station[8], grafolandia.line[0]);
+		grafolandia.addconexao(grafolandia.station[8], grafolandia.station[2], grafolandia.line[1]);
+		grafolandia.addconexao(grafolandia.station[2], grafolandia.station[15], grafolandia.line[2]);
+		grafolandia.addconexao(grafolandia.station[15], grafolandia.station[16], grafolandia.line[3]);
+		grafolandia.addconexao(grafolandia.station[16], grafolandia.station[17], grafolandia.line[4]);
+		grafolandia.addconexao(grafolandia.station[17], grafolandia.station[18], grafolandia.line[5]);
+		grafolandia.addconexao(grafolandia.station[12], grafolandia.station[9], grafolandia.line[21]);
+		grafolandia.addconexao(grafolandia.station[9], grafolandia.station[13], grafolandia.line[22]);
+		grafolandia.addconexao(grafolandia.station[13], grafolandia.station[14], grafolandia.line[23]);
+		grafolandia.addconexao(grafolandia.station[14], grafolandia.station[5], grafolandia.line[24]);
+		grafolandia.addconexao(grafolandia.station[5], grafolandia.station[14], grafolandia.line[25]);
+		grafolandia.addconexao(grafolandia.station[10], grafolandia.station[13], grafolandia.line[11]);
+		grafolandia.addconexao(grafolandia.station[13], grafolandia.station[3], grafolandia.line[12]);
+		grafolandia.addconexao(grafolandia.station[3], grafolandia.station[16], grafolandia.line[13]);
+		grafolandia.addconexao(grafolandia.station[16], grafolandia.station[19], grafolandia.line[14]);
+		grafolandia.addconexao(grafolandia.station[19], grafolandia.station[20], grafolandia.line[15]);
+		
 	
+		
+		
 
 	}
-	
-	
-		
 
 }
