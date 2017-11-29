@@ -1,9 +1,8 @@
-package grafos;
+package grafolandia;
 
 public class Estacao {
 	
 	private int id;
-	
 	
 	public Estacao(int id) {
 		super();
@@ -16,11 +15,6 @@ public class Estacao {
 	public void setId(int id) {
 		this.id = id;
 	}
-	
-	
-	
-	
-	
 	
 
 }
