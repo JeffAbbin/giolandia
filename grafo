@@ -1,27 +1,57 @@
-package grafos;
+package grafolandia;
 
-public class Grafo {
+public class grafo {
 	
-	Estacao[] est = new Estacao[20];
+	Estacao[] station = new Estacao[21];
+	Linha[] line = new Linha[26];
+	Linha conexao[][] = new Linha[21][21];
 	
-	int adjcentes[][] = new int[20][20];
-
-	public Estacao[] getEst() {
-		return est;
+	
+	public grafo() {
+		super();
+		for (int i = 0; i < 20; i++) {
+			
+			station[i+1] = new Estacao(i +1);
+		}
+	/*	for(int i = 0; i < conexao.length; i++) {          //tem ter um jeito de colocar todos as posisoes da matriz em null
+			for (int j = 0; j < conexao.length; j++) {
+				conexao[i][j] = NULL;
+			}
+		}*/
+			line[0] = new Linha("amarelo", 11);
+			line[1] = new Linha("amarelo", 8);
+			line[2] = new Linha("amarelo", 7);
+			line[3] = new Linha("amarelo", 7);
+			line[4] = new Linha("amarelo", 12);
+			line[5] = new Linha("amarelo", 9);
+			line[6] = new Linha("vermelho", 16);
+			line[7] = new Linha("vermelho", 14);
+			line[8] = new Linha("vermelho", 12);
+			line[9] = new Linha("vermelho", 12);
+			line[10] = new Linha("vermelho", 14);
+			line[11] = new Linha("roxo", 11);
+			line[12] = new Linha("roxo", 13);
+			line[13] = new Linha("roxo", 11);
+			line[14] = new Linha("roxo", 13);
+			line[15] = new Linha("roxo", 12);
+			line[16] = new Linha("verde", 15);
+			line[17] = new Linha("verde", 11);
+			line[18] = new Linha("verde", 13);
+			line[19] = new Linha("verde", 16);
+			line[20] = new Linha("verde", 15);
+			line[21] = new Linha("azul", 17);
+			line[22] = new Linha("azul", 7);
+			line[23] = new Linha("azul", 9);
+			line[24] = new Linha("azul", 9);
+			line[25] = new Linha("azul", 10);
 	}
-
-	public void setEst(Estacao[] est) {
-		this.est = est;
-	}
-
-	public int[][] getAdjcentes() {
-		return adjcentes;
-	}
-
-	public void setAdjcentes(int[][] adjcentes) {
-		this.adjcentes = adjcentes;
-	}
-	private void addpercurso(int estacao1, int estacao2){
+	
+	public void addconexao(Estacao station1, Estacao station2, Linha line){
+		conexao[station1.getId()][station2.getId()] = line;
+		conexao[station2.getId()][station1.getId()] = line;
 		
-		
 	}
+	  
+	
+
+}
