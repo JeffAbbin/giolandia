@@ -3,10 +3,15 @@ package grafolandia;
 public class Estacao {
 	
 	private int id;
+	private Double ArranjoD;
+	private Estacao ant;
+	private boolean aberto; 
 	
 	public Estacao(int id) {
 		super();
 		this.id = id;
+		this.ArranjoD = Double.POSITIVE_INFINITY/2;
+		this.ant = null;
 		
 	}
 	public int getId() {
@@ -15,6 +20,25 @@ public class Estacao {
 	public void setId(int id) {
 		this.id = id;
 	}
+	public Double getArranjoD() {
+		return ArranjoD;
+	}
+	public void setArranjoD(Double arranjoD) {
+		ArranjoD = arranjoD;
+	}
+	public Estacao getAnt() {
+		return ant;
+	}
+	public void setAnt(Estacao ant) {
+		this.ant = ant;
+	}
+	public boolean isAberto() {
+		return aberto;
+	}
+	public void setAberto(boolean aberto) {
+		this.aberto = aberto;
+	}
+	
 	
 
 }
