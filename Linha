@@ -1,0 +1,32 @@
+package grafolandia;
+
+public class Linha {
+	
+	private String cor;
+	private int distacia;
+	
+	public Linha(String cor, int distacia) {
+		super();
+		this.cor = cor;
+		this.distacia = distacia;
+	}
+
+	public String getCor() {
+		return cor;
+	}
+
+	public void setCor(String cor) {
+		this.cor = cor;
+	}
+
+	public int getDistacia() {
+		return distacia;
+	}
+
+	public void setDistacia(int distacia) {
+		this.distacia = distacia;
+	}
+	
+	
+
+}
