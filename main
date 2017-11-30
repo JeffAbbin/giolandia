@@ -1,10 +1,7 @@
-package grafolandia;
+package giolandia;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Collections;
@@ -18,7 +15,7 @@ public class Main {
 		grafo grafolandia = new grafo();
 		int[] station = new int[21];
 		Scanner teclado = new Scanner(System.in);
-		int destino, partida, u, y, t, aux,m;
+		int destino, partida, u, y, t, aux, m, sum, cont, bald;
 		
 		grafolandia.addconexao(grafolandia.station[1], grafolandia.station[2], grafolandia.line[6]);
 		grafolandia.addconexao(grafolandia.station[2], grafolandia.station[3], grafolandia.line[7]);
@@ -53,10 +50,21 @@ public class Main {
 		
 		
 		System.out.println("***Bem-vindo ao SMG***");
+		do{
+		do{
 		System.out.print("digite seu destino: ");
 		destino = teclado.nextInt();
+		if(destino > 20 || destino < 1){
+			System.out.println("so existem estaçoes de 1 a 20");
+		}
+		}while(destino > 21 || destino < 0);
+		do{
 		System.out.print("digite sua origem: ");
 		partida = teclado.nextInt();
+		if(destino > 20 || destino < 1){
+			System.out.println("so existem estaçoes de 1 a 20");
+		}
+		}while(destino > 20 || destino < 1);
 		grafolandia.inicializar();
 		grafolandia.getStation(partida).setArranjoD((double) 0);
 		
@@ -82,6 +90,7 @@ public class Main {
 		m++;
 		aux = grafolandia.getStation(aux).getAnt().getId();
 		}
+		sum =  (int)grafolandia.getStation(destino).getArranjoD();
 		aux = partida;
 		inverte(station , 0, station.length -1 );
 		 for (int i=0; i<station.length - 1; i++){
@@ -91,13 +100,18 @@ public class Main {
 			 }
 			 
 		 }
-		 System.out.print(" pegue linha " + grafolandia.getConexao(aux, grafolandia.getStation(destino).getId()).getCor() + " para estacao " + grafolandia.getStation(destino).getId()); 
+			 
+		 
+		 System.out.print(" pegue linha " + grafolandia.getConexao(aux, grafolandia.getStation(destino).getId()).getCor() + " para estacao " + grafolandia.getStation(destino).getId() + " ");
 		
+		System.out.println("vc vai levar " + sum + " minutos para chegar") ;
 	
 		
 	
-		
-		
+			System.out.println("DESEJA CONTINUAR SIM=1 | NAO=0 ");
+			cont = teclado.nextInt();
+			System.out.println();
+		}while(cont != 0);
 
 	}
 	
@@ -154,4 +168,3 @@ public class Main {
         }
 	}
 }
-	
