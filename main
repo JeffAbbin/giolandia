@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
@@ -15,8 +16,9 @@ public class Main {
 	public static void main(String[] args) {
 	
 		grafo grafolandia = new grafo();
+		int[] station = new int[21];
 		Scanner teclado = new Scanner(System.in);
-		int destino, partida, u, y, t;
+		int destino, partida, u, y, t, aux,m;
 		
 		grafolandia.addconexao(grafolandia.station[1], grafolandia.station[2], grafolandia.line[6]);
 		grafolandia.addconexao(grafolandia.station[2], grafolandia.station[3], grafolandia.line[7]);
@@ -38,7 +40,7 @@ public class Main {
 		grafolandia.addconexao(grafolandia.station[9], grafolandia.station[13], grafolandia.line[22]);
 		grafolandia.addconexao(grafolandia.station[13], grafolandia.station[14], grafolandia.line[23]);
 		grafolandia.addconexao(grafolandia.station[14], grafolandia.station[5], grafolandia.line[24]);
-		grafolandia.addconexao(grafolandia.station[5], grafolandia.station[14], grafolandia.line[25]);
+		grafolandia.addconexao(grafolandia.station[5], grafolandia.station[17], grafolandia.line[25]);
 		grafolandia.addconexao(grafolandia.station[10], grafolandia.station[13], grafolandia.line[11]);
 		grafolandia.addconexao(grafolandia.station[13], grafolandia.station[3], grafolandia.line[12]);
 		grafolandia.addconexao(grafolandia.station[3], grafolandia.station[16], grafolandia.line[13]);
@@ -73,9 +75,25 @@ public class Main {
 				t++;
 			}
 		}
+		m=0;
+		aux = grafolandia.getStation(destino).getId();
+		while(partida != grafolandia.getStation(aux).getId()){
+		station[m]= grafolandia.getStation(aux).getId();
+		m++;
+		aux = grafolandia.getStation(aux).getAnt().getId();
+		}
+		aux = partida;
+		inverte(station , 0, station.length -1 );
+		 for (int i=0; i<station.length - 1; i++){
+			 if(station[i] != 0){
+				 System.out.print(" pegue linha " + grafolandia.getConexao(aux, station[i]).getCor() + " para estacao " + station[i]);
+				 aux = station[i];
+			 }
+			 
+		 }
+		 System.out.print(" pegue linha " + grafolandia.getConexao(aux, grafolandia.getStation(destino).getId()).getCor() + " para estacao " + grafolandia.getStation(destino).getId()); 
 		
-		System.out.println("o caminho mais curto é:" + grafolandia.getStation(destino).getAnt().getId());
-		
+	
 		
 	
 		
@@ -123,4 +141,17 @@ public class Main {
 		return menor;
 	}
 
+	static int[] inverte( int[] v, int i, int f ){
+        int aux;
+        if ( i >= f ){
+            return v;
+        }
+        else{
+            aux = v[i];
+            v[i] = v[f];
+            v[f] = aux;
+            return inverte(v, i+1, f-1);
+        }
+	}
 }
+	
