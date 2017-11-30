@@ -24,7 +24,7 @@ public class Estacao {
 		return ArranjoD;
 	}
 	public void setArranjoD(Double arranjoD) {
-		ArranjoD = arranjoD;
+		this.ArranjoD = arranjoD;
 	}
 	public Estacao getAnt() {
 		return ant;
