@@ -18,7 +18,6 @@ public class Main {
 		Scanner teclado = new Scanner(System.in);
 		int destino, partida, u, y, t;
 		
-		
 		grafolandia.addconexao(grafolandia.station[1], grafolandia.station[2], grafolandia.line[6]);
 		grafolandia.addconexao(grafolandia.station[2], grafolandia.station[3], grafolandia.line[7]);
 		grafolandia.addconexao(grafolandia.station[3], grafolandia.station[4], grafolandia.line[8]);
@@ -50,12 +49,13 @@ public class Main {
 		
 		
 		
+		
 		System.out.println("***Bem-vindo ao SMG***");
 		System.out.print("digite seu destino: ");
 		destino = teclado.nextInt();
 		System.out.print("digite sua origem: ");
 		partida = teclado.nextInt();
-		//grafolandia.inicializar();
+		grafolandia.inicializar();
 		grafolandia.getStation(partida).setArranjoD((double) 0);
 		
 		
@@ -63,11 +63,13 @@ public class Main {
 			u = menorDist(grafolandia);
 			grafolandia.getStation(u).setAberto(false);
 			t = 0;
+			y =0;
 			while(t != 21){
-				y =0;
+				
 				if(grafolandia.getConexao(grafolandia.getStation(u).getId(), y).getDistacia() != -1){
 					relaxa(grafolandia.getStation(u), grafolandia.getStation(y), grafolandia);
 				}
+				y++;
 				t++;
 			}
 		}
@@ -112,7 +114,7 @@ public class Main {
 		}
 		int menor = i;
 		for(i = menor + 1; i <21; i++){
-			if(grafolandia.getStation(i).isAberto() && grafolandia.getStation(menor).getArranjoD() > grafolandia.getStation(menor).getArranjoD()){
+			if(grafolandia.getStation(i).isAberto() && grafolandia.getStation(menor).getArranjoD() > grafolandia.getStation(i).getArranjoD()){
 				menor = i;
 			}
 		}
