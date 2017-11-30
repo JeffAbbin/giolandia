@@ -3,21 +3,23 @@ package grafolandia;
 public class grafo {
 	
 	Estacao[] station = new Estacao[21];
-	Linha[] line = new Linha[26];
+	Linha[] line = new Linha[27];
 	Linha conexao[][] = new Linha[21][21];
 	
 	
 	public grafo() {
 		super();
-		for (int i = 0; i < 20; i++) {
+		
+		for (int i = 0; i < 21; i++) {
 			
-			station[i+1] = new Estacao(i +1);
+			station[i] = new Estacao(i);
 		}
-	/*	for(int i = 0; i < conexao.length; i++) {          //tem ter um jeito de colocar todos as posisoes da matriz em null
+		line[26] = new Linha("NULL", -1);
+		for(int i = 0; i < conexao.length; i++) {          
 			for (int j = 0; j < conexao.length; j++) {
-				conexao[i][j] = NULL;
+				conexao[i][j] = line[26];
 			}
-		}*/
+		}
 			line[0] = new Linha("amarelo", 11);
 			line[1] = new Linha("amarelo", 8);
 			line[2] = new Linha("amarelo", 7);
@@ -44,12 +46,46 @@ public class grafo {
 			line[23] = new Linha("azul", 9);
 			line[24] = new Linha("azul", 9);
 			line[25] = new Linha("azul", 10);
+			
 	}
+	
 	
 	public void addconexao(Estacao station1, Estacao station2, Linha line){
 		conexao[station1.getId()][station2.getId()] = line;
 		conexao[station2.getId()][station1.getId()] = line;
 		
+	}
+	
+	public void inicializar(){
+		for (int i = 0; i < station.length; i++) {
+		station[i].setArranjoD(Double.POSITIVE_INFINITY);
+		station[i].setAnt(null);
+		station[i].setAberto(true);
+		}
+	}
+
+	public Estacao getStation(int posisao) {
+		return station[posisao];
+	}
+
+	public void setStation(Estacao[] station) {
+		this.station = station;
+	}
+
+	public Linha[] getLine() {
+		return line;
+	}
+
+	public void setLine(Linha[] line) {
+		this.line = line;
+	}
+
+	public Linha getConexao(int x, int y) {
+		return conexao[x][y];
+	}
+
+	public void setConexao(Linha[][] conexao) {
+		this.conexao = conexao;
 	}
 	  
 	
